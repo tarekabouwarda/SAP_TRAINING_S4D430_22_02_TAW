@@ -3,6 +3,13 @@
 @AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Uebung 01 TAW'
+@Metadata.allowExtensions: true
+@ObjectModel: {
+    createEnabled: true,
+    updateEnabled: true,
+    deleteEnabled: true
+}
+
 define view ZC_05_BookingTP_2 
 as select from ZI_05_BookingTP_2 
 //association [0..*] to ZC_00_FlightTP as _Flights on  _Flights.CarrierID    = ZI_00_ConnectionTP.CarrierID
@@ -16,5 +23,6 @@ key ZI_05_BookingTP_2.BookingID,
 ZI_05_BookingTP_2.Class,
 ZI_05_BookingTP_2.OrderDate,
 ZI_05_BookingTP_2.CustomerID,
+@ObjectModel.association.type: [#TO_COMPOSITION_PARENT, #TO_COMPOSITION_ROOT]
 _Customer
 }

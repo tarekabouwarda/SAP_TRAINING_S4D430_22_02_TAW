@@ -1,0 +1,43 @@
+@Metadata.layer: #CUSTOMER
+annotate view ZC_05_BookingTP_2 with
+{
+
+  @UI.facet: [{
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'General Information',
+    position: 10
+  }, {
+    type: #LINEITEM_REFERENCE,
+    label: 'Flights',
+    targetElement: '_Customer',
+    position: 20
+  }]
+
+
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  CarrierID;
+    @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  ConnectionID;
+    @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  FlightDate;
+    @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  BookingID;
+    @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 50 }]
+  Class;
+    @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+  OrderDate;
+    @UI.lineItem: [{ position: 70 }]
+  @UI.identification: [{ position: 70 }]
+  CustomerID;
+    @UI.lineItem: [{ position: 80 }]
+  @UI.identification: [{ position: 80 }]
+  /* Associations */
+  _Customer;
+
+}

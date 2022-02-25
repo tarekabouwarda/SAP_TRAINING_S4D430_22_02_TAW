@@ -1,0 +1,60 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo: {
+    title.value: 'Name'
+//    description.value: 'ConnectionID',
+//    typeName: 'Connection',
+//    typeNamePlural: 'Connections'
+}
+annotate view ZC_05_CustomerTP
+    with 
+{
+
+//Bereich
+  @UI.facet: [{
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'General Information',
+    position: 10
+  }, {
+    type: #LINEITEM_REFERENCE,
+    label: 'Flights',
+    targetElement: '_Bookings',
+    position: 20
+  }]
+
+//Felder
+//  @UI.lineItem: [{ position: 10 }]
+  @UI.selectionField: [{ position: 5 }]
+  @UI.lineItem: [
+    { position: 10 },
+    { position: 10, type: #FOR_ACTION, dataAction: 'BOPF:ZCM_05_CUSTOMER', label: 'Raise Discount' }
+//    { position: 20, type: #FOR_ACTION, dataAction: 'BOPF:ZCM_05_CUSTOMER', label: 'Decrease Discount' }
+    ]
+  @UI.identification: [{ position: 10 }]
+    ID;
+      @UI.lineItem: [{ position: 20 }]
+        @UI.identification: [{ position: 20 }]
+    Name;
+  @UI.lineItem: [{ position: 30 }]
+    @UI.identification: [{ position: 30 }]
+    Street;
+   @UI.lineItem: [{ position: 40 }]
+     @UI.identification: [{ position: 40 }]
+    Postcode;
+  @UI.lineItem: [{ position: 50 }]
+  @UI.selectionField: [{ position: 10 }]
+    @UI.identification: [{ position: 50 }]
+    City;
+ // @UI.lineItem: [{ position: 60 }]
+  @UI.selectionField: [{ position: 20 }]
+    @UI.identification: [{ position: 60 }]
+    Country;
+  @UI.lineItem: [{ position: 60 }]
+    @UI.identification: [{ position: 70 }]
+    Discount;
+  @UI.lineItem: [{ position: 70 }]
+    @UI.identification: [{ position: 80 }]
+    /* Associations */
+    
+    _Bookings;
+    
+}
